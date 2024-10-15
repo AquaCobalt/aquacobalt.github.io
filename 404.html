@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Homepage</title>
+    <title>404 Not Found</title>
 
-    <!-- Favicon for the page title -->
+    <!-- Favicon for the page title (same as previous) -->
     <link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/rHuY0SJRu2p8_Oc2_gK8edjCvgXYYTzciKhz1_cszM8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/818814991770845216/37baa813ea16c5ffa856bd2db06da67c.png?format=webp&quality=lossless" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" />
@@ -17,12 +17,21 @@
             color: #ffffff; /* Light text */
             margin: 0;
             padding: 20px;
+            text-align: center;
         }
         h1 {
             color: #c4c0ff;
         }
 
-        /* Style for the simple text button */
+        .error-message {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .cupoftea {
+            font-size: 100px;
+            margin: 20px 0;
+        }
+
         .simple-button {
             display: inline-block;
             padding: 10px 15px;
@@ -45,13 +54,17 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to my little website!</h1>
-    I'm AquaCobalt, aka Cautious, and welcome to my little website! :D<br>
-    This website is still in development, but this website is going to have all my stuff, 
-    including social links, repositories, software, blog posts, and anything else.<br><br>
+    <h1>404 - Page Not Found</h1>
+    <div class="error-message">
+        Oops! The page you are looking for does not exist. :(<br>
+        It's either that or I removed this page. :(<br><br>
+        Since you're here, have a nice cup of tea and go back to the homepage! :D
+    </div>
+    <div class="cupoftea">
+        ☕
+    </div>
 
-    <!-- Simple text button that links to another page (e.g., social links) -->
-    <a href="https://aquacobalt.github.io/socials" class="simple-button">Visit My Socials</a>
+    <!-- Link back to the homepage -->
+    <a href="https://aquacobalt.github.io" class="simple-button">Go Back to Homepage :)</a>
 </body>
-<!-- Credits to ChatGPT and the Internet for helping be learn HTML and helping with things I got stuck at! <3-->
 </html>
