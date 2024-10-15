@@ -23,7 +23,7 @@
         }
 
         /* Style for the simple text button */
-        .simple-button {
+        .simple-button, .simple2-button {
             display: inline-block;
             padding: 10px 15px;
             font-size: 18px;
@@ -42,6 +42,15 @@
             color: #ffffff; /* Same color when pressed */
             border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
         }
+        .simple2-button:hover {
+            color: #ffffff; /* Change text color on hover */
+            border-bottom: 2px solid #ffffff; /* Underline on hover */
+        }
+
+        .simple2-button:active {
+            color: #ffffff; /* Same color when pressed */
+            border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
+        }
     </style>
 </head>
 <body>
@@ -52,6 +61,7 @@
 
     <!-- Simple text button that links to another page (e.g., social links) -->
     <a href="https://aquacobalt.github.io/socials" class="simple-button">Visit My Socials</a>
+    <a href="https://aquacobalt.github.io/myfriends" class="simple2-button">My Friends!</a>
 </body>
-<!-- Credits to ChatGPT and the Internet for helping be learn HTML and helping with things I got stuck at! <3-->
+<!-- Credits to ChatGPT and the Internet for helping me learn HTML and helping with things I got stuck at! <3-->
 </html>
