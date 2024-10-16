@@ -23,7 +23,7 @@
         }
 
         /* Style for the simple text button */
-        .simple-button, .simple2-button {
+        .simple1-button, .simple2-button {
             display: inline-block;
             padding: 10px 15px;
             font-size: 18px;
@@ -32,13 +32,22 @@
             border-bottom: 2px solid transparent;
             transition: color 0.3s ease, border-color 0.3s ease;
         }
+        .simple3-button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: #ffd000; /* Light purple text */
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease
+        }
 
-        .simple-button:hover {
+        .simple1-button:hover {
             color: #ffffff; /* Change text color on hover */
             border-bottom: 2px solid #ffffff; /* Underline on hover */
         }
 
-        .simple-button:active {
+        .simple1-button:active {
             color: #ffffff; /* Same color when pressed */
             border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
         }
@@ -50,6 +59,15 @@
         .simple2-button:active {
             color: #ffffff; /* Same color when pressed */
             border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
+        }
+        .simple3-button:hover {
+            color: #ffd000; /* Change text color on hover */
+            border-bottom: 2px solid #ffd000; /* Underline on hover */
+        }
+
+        .simple3-button:active {
+            color: #ffd000; /* Same color when pressed */
+            border-bottom: 2px solid #ffd000; /* Underline remains while pressed */
         }
     </style>
     <meta property="og:title" content="AquaCobalt's Website - Homepage" />
@@ -65,8 +83,9 @@
     including social links, repositories, software, blog posts, and anything else.<br><br>
 
     <!-- Simple text button that links to another page (e.g., social links) -->
-    <a href="https://aquacobalt.github.io/socials" class="simple-button">Visit My Socials</a>
+    <a href="https://aquacobalt.github.io/socials" class="simple1-button">Visit My Socials</a>
     <a href="https://aquacobalt.github.io/myfriends" class="simple2-button">My Friends!</a>
+    <a href="https://aquacobalt.github.io/myfriends" class="simple3-button">My Software!</a>
 </body>
 <!-- Credits to ChatGPT and the Internet for helping me learn HTML and helping with things I got stuck at! <3-->
 </html>
