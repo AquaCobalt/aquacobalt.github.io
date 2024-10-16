@@ -29,12 +29,24 @@
             padding: 20px;
             color: #ffffff; /* Change color to match the theme */
         }
-        a {
-            color: #ffffff; /* Match theme color for links */
+        .simple-button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: #ffffff; /* Light purple text */
             text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
-        a:hover {
-            text-decoration: underline; /* Underline on hover */
+
+        .simple-button:hover {
+            color: #ffffff; /* Change text color on hover */
+            border-bottom: 2px solid #ffffff; /* Underline on hover */
+        }
+
+        .simple-button:active {
+            color: #ffffff; /* Same color when pressed */
+            border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
         }
     </style>
       <meta property="og:title" content="AquaCobalt's Website - My Software" />
@@ -48,7 +60,7 @@
     There's nothing here! Sooner or later, this will become the place for all my software!<br><br>
     
     <!-- Hyperlink wrapped around the h2 -->
-    <a href="https://aquacobalt.github.io/">
+    <a href="https://aquacobalt.github.io/" class="simple-button">
         <h2>Go back to Homepage!</h2>
     </a>
 </body>
