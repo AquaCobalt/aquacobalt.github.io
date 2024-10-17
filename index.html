@@ -17,57 +17,79 @@
             color: #ffffff; /* Light text */
             margin: 0;
             padding: 20px;
+            box-sizing: border-box;
         }
+
         h1 {
             color: #c4c0ff;
         }
 
-        /* Style for the simple text button */
-        .simple1-button, .simple2-button {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 18px;
-            color: #ffffff; /* Light purple text */
+        /* Navbar container */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Space between links */
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #09001f; /* Dark background to match body */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure navbar is above other content */
+        }
+
+        /* Bold aquacobalt.github.io link */
+        .navbar a.homepage {
+            font-weight: bold;
+            margin-left: 0; /* Align to the very left */
+            padding: 10px;
+            color: #ffffff;
             text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: color 0.3s ease, border-color 0.3s ease;
-        }
-        .simple3-button {
-            display: inline-block;
-            padding: 10px 15px;
             font-size: 18px;
-            color: #ffd000; /* Light purple text */
+            transition: color 0.3s;
+        }
+
+        /* Regular navbar links */
+        .navbar a {
+            color: #ffffff; /* White text */
             text-decoration: none;
+            margin-left: 15px; /* Add space to the left of the links */
+            font-size: 18px;
+            padding: 10px;
+            transition: color 0.3s, border-bottom 0.3s;
             border-bottom: 2px solid transparent;
-            transition: color 0.3s ease, border-color 0.3s ease
         }
 
-        .simple1-button:hover {
-            color: #ffffff; /* Change text color on hover */
-            border-bottom: 2px solid #ffffff; /* Underline on hover */
+        /* Remove underline on hover for homepage link */
+        .navbar a.homepage:hover {
+            color: #c4c0ff; /* Light purple on hover */
+            border-bottom: none; /* No underline */
         }
 
-        .simple1-button:active {
-            color: #ffffff; /* Same color when pressed */
-            border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
-        }
-        .simple2-button:hover {
-            color: #ffffff; /* Change text color on hover */
-            border-bottom: 2px solid #ffffff; /* Underline on hover */
+        /* Hover effect for the links */
+        .navbar a:hover {
+            color: #c4c0ff; /* Light purple on hover */
+            border-bottom: 2px solid #c4c0ff; /* Light purple underline on hover */
         }
 
-        .simple2-button:active {
-            color: #ffffff; /* Same color when pressed */
-            border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
-        }
-        .simple3-button:hover {
-            color: #ffd000; /* Change text color on hover */
-            border-bottom: 2px solid #ffd000; /* Underline on hover */
+        /* Add margin to the body content to account for the fixed navbar */
+        .content {
+            margin-top: 80px; /* Adjust according to navbar height */
         }
 
-        .simple3-button:active {
-            color: #ffd000; /* Same color when pressed */
-            border-bottom: 2px solid #ffd000; /* Underline remains while pressed */
+        /* White separator line directly under the navbar */
+        .navbar-separator {
+            height: 2px;
+            background-color: #ffffff; /* White line */
+            width: 100%;
+        }
+
+        /* Thin separator line (White) below the navbar */
+        .separator {
+            height: 1px;
+            background-color: #ffffff; /* White */
+            margin-top: 20px;
+            width: 100%;
         }
     </style>
     <meta property="og:title" content="AquaCobalt's Website - Homepage" />
@@ -77,15 +99,29 @@
     <meta property="og:type" content="website" />
 </head>
 <body>
-    <h1>❤️ Welcome to my little website!</h1>
-    I'm AquaCobalt, aka Cautious, and welcome to my little website! :D<br>
-    This website is still in development, but this website is going to have all my stuff, 
-    including social links, repositories, software, blog posts, and anything else.<br><br>
+    <!-- Navbar section -->
+    <div class="navbar">
+        <a href="https://aquacobalt.github.io" class="homepage">aquacobalt.github.io</a>
+        <div>
+            <a href="https://aquacobalt.github.io/socials">My Socials</a>
+            <a href="https://aquacobalt.github.io/myfriends">My Friends!</a>
+            <a href="https://aquacobalt.github.io/software">My Software!</a>
+        </div>
+    </div>
 
-    <!-- Simple text button that links to another page (e.g., social links) -->
-    <a href="https://aquacobalt.github.io/socials" class="simple1-button">Visit My Socials</a>
-    <a href="https://aquacobalt.github.io/myfriends" class="simple2-button">My Friends!</a>
-    <a href="https://aquacobalt.github.io/software" class="simple3-button">My Software!</a>
+    <!-- White separator line directly under the navbar -->
+    <div class="navbar-separator"></div>
+
+    <!-- Separator line (light purple) below the navbar -->
+    <div class="separator"></div>
+
+    <!-- Main content section -->
+    <div class="content">
+        <h1>❤️ Welcome to my little website!</h1>
+        I'm AquaCobalt, aka Cautious, and welcome to my little website! :D<br>
+        This website is still in development, but this website is going to have all my stuff, 
+        including social links, repositories, software, blog posts, and anything else.<br><br>
+    </div>
 </body>
-<!-- Credits to ChatGPT and the Internet for helping me learn HTML and helping with things I got stuck at! <3-->
+<!-- Credits to ChatGPT and the Internet for helping me learn HTML and helping with things I got stuck at! <3 -->
 </html>
