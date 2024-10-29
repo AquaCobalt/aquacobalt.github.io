@@ -4,132 +4,176 @@
     <meta charset="UTF-8" />
     <title>Bloxd.io Packs</title>
     
-    <!-- Favicon for the page title -->
     <link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/rHuY0SJRu2p8_Oc2_gK8edjCvgXYYTzciKhz1_cszM8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/818814991770845216/37baa813ea16c5ffa856bd2db06da67c.png?format=webp&quality=lossless" />
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" />
+    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            font-weight: 300; /* Light weight */
-            font-size: 18px; /* Larger font size */
-            background-color: #09001f; /* Dark background */
-            color: #f5f5f5; /* Light text */
+            font-weight: 300;
+            font-size: 18px;
+            background-color: #09001f;
+            color: #f5f5f5;
             margin: 0;
             padding: 20px;
         }
         h1 {
             color: #c4c0ff;
         }
-        h2 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 300;
-            font-size: 17px;
-            margin: 0;
-            padding: 20px;
-            color: #ffffff; /* Change color to match the theme */
-        }
         h3 {
             font-family: 'Roboto', sans-serif;
-            font-weight: 300; /* Light weight */
-            font-size: 40px; /* Larger font size */
-            background-color: #09001f; /* Dark background */
-            color: #f5f5f5; /* Light text */
-            margin: 0;
-            padding: 0px;
+            font-weight: 300;
+            font-size: 40px;
+            color: #f5f5f5;
+        }
+        .packname {
+            font-size: 25px;
+            margin-top: 20px;
+        }
+        .version-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 20px;
+            font-weight: 100; /* Match lightweight text */
+            background-color: transparent;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .version-button:hover {
+            color: #00ccff;
+        }
+        .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-right: 8px;
+        }
+        .rotate {
+            transform: rotate(90deg);
+        }
+        .downloads {
+            display: none;
+            overflow: hidden;
+            margin-top: 10px;
+            font-size: 18px;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        .downloads.show {
+            display: block;
+            max-height: 1000px; /* large enough to fit content */
+            opacity: 1;
+        }
+        .downloads p {
+            margin: 5px 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .downloads a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .downloads a:hover {
+            text-decoration: underline;
         }
         .simple-button {
             display: inline-block;
             padding: 10px 15px;
             font-size: 18px;
-            color: #ffffff; /* Light purple text */
+            color: #ffffff;
             text-decoration: none;
             border-bottom: 2px solid transparent;
             transition: color 0.3s ease, border-color 0.3s ease;
         }
         .simple-button:hover {
-            color: #ffffff; /* Change text color on hover */
-            border-bottom: 2px solid #ffffff; /* Underline on hover */
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
         }
-        .simple-button:active {
-            color: #ffffff; /* Same color when pressed */
-            border-bottom: 2px solid #ffffff; /* Underline remains while pressed */
+        
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .links {
-            color: #00ccff;
-            text-decoration: none;
+        footer {
+            position: fixed; /* Fix position at the bottom */
+            left: 0;
+            bottom: 0;
+            width: 100%; /* Full width */
+            background-color: rgb(178, 136, 255); /* White background */
+            color: #000000; /* Purple text color */
+            text-align: center; /* Center the text */
+            padding: 0px 0; /* Add some padding */
+            font-size: 16px; /* Font size */
+            line-height: 1;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Add slight shadow for depth */
         }
-        a {
-            color: #93e9ff; /* Match theme color for links */
-            text-decoration: none;
-        }
-        a.underline-on-hover:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
-        ul.downloadler {
-            font-size: 20px;
-            list-style-type: none; /* Removes the bullets */
-            padding-left: 20px; /* Adjust the left padding for indentation */
-            margin: 0; /* Removes default margin */
-        }
-        ul.downloadler li {
-            margin-bottom: 5px; /* Adds space between list items */
-            color: #ffffff; /* Matches the light text theme */
-        }
-        .packname {
-            font-size: 25px
-        }
-        ul.info {
-            list-style-type: none; /* Removes the bullets */
-            padding-left: 20px; /* Adjust the left padding for indentation */
-            margin: 0; /* Removes default margin */
-        }
-        ul.info li {
-            margin-bottom: 5px; /* Adds space between list items */
-            color: #ffffff; /* Matches the light text theme */
-        }
-
     </style>
+    
+    <script>
+        function toggleDownloads(version) {
+            var downloads = document.getElementById("downloads-" + version);
+            var arrow = document.getElementById("arrow-" + version);
+            if (downloads.classList.contains("show")) {
+                downloads.classList.remove("show");
+                arrow.classList.remove("rotate");
+            } else {
+                downloads.classList.add("show");
+                arrow.classList.add("rotate");
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>🧊 Bloxd.io Packs!</h1>
-This page is an archive of Bloxd.io texturepacks. Currently, there's only one pack on this page.<br><br>
-However, I would love to host more files on here! If you want me to host a bloxd.io texture pack including one that someone else made, or one of your own, contact me @nobodyhasthisusername on Discord! But yes, I need to get permission from the original creator if it's a texture pack that's not your own. I got bluepanda's permission to host the PandaFault texture pack on here. I will always have the original source in the .tar.gz format!<br><br><br>    
-    <h3>Texture Packs</h3><br><br>
-    <span class="packname">PandaFault - by Bluepanda</span><br><br>
-    <!-- Hyperlink wrapped around the h2 -->
-    <ul class="downloadler">
-            <li>Download: Version 1.0 (5.1MB) (.zip format 🤐)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.zip" download class="underline-on-hover">PandaFault-V1.zip - Bloxd.io Texture pack<br></a></li>
-            <li>Download: Version 1.0 (5.0MB) (.rar format 🪟)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.rar" download class="underline-on-hover">PandaFault-V1.rar - Bloxd.io Texture pack</a></li>
-            <li>Download: Version 1.0 (6.8MB) (.iso format 💿️)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.iso" download class="underline-on-hover">PandaFault-V1.iso - Bloxd.io Texture pack</a></li>
-            <li>Download: Version 1.0 (5.0MB) (.jar format 🫙)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.jar" download class="underline-on-hover">PandaFault-V1.jar - Bloxd.io Texture pack</a></li>
-            <li>Download: Version 1.0 (4.8MB) (.tar.gz format 🐧)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.tar.gz" download class="underline-on-hover">PandaFault-V1.tar.gz - Bloxd.io Texture pack</a></li>
-            <li>Download: Version 1.0 (4.8MB) (.tar.xz format 🍎)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.tar.xz" download class="underline-on-hover">PandaFault-V1.tar.xz - Bloxd.io Texture pack</a></li>
-            <li>Download: Version 1.0 (4.8MB) (.7z format 📐)
-                <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.7z" download class="underline-on-hover">PandaFault-V1.7z - Bloxd.io Texture pack</a></li>
-        </ul>
-    </ul>
-                <br><br>
-    <ul class="info">
-        <li>- Custom Wool!</li>
-        <li>- Custom Sky!</li>
-    </ul>
-    <br>
-    If the downloads above do not work/are corrupt please drop me a DM on Discord [@nobodyhasthisusername] so I can fix them up!
+    <p>This page is an archive of Bloxd.io texture packs. Currently, there's only one pack on this page.<br><br>
+    However, I would love to host more files on here! If you want me to host a bloxd.io texture pack, contact me @nobodyhasthisusername on Discord!<br><br>
+    And also if you wanna know how to use these texture packs; simply extract the file and upload it on the bloxd.io texture packs tab!</p>
     
+    <h3>Texture Packs</h3>
+    
+    <div class="pack">
+        <span class="packname">PandaFault - by Bluepanda</span><br><br>
+        
+        <!-- Version Buttons -->
+        <button class="version-button" onclick="toggleDownloads('1.0')">
+            <span class="arrow" id="arrow-1.0">&#8250;</span> Version 1.0
+        </button>
+        <div class="downloads" id="downloads-1.0">
+            <p>Download: Version 1.0 (5.1MB) (.zip format 🤐) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.zip" download>PandaFault-V1.zip - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.0 (5.0MB) (.rar format 🪟) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.rar" download>PandaFault-V1.rar - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.0 (6.8MB) (.iso format 💿️) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.iso" download>PandaFault-V1.iso - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.0 (5.0MB) (.jar format 🫙) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.jar" download>PandaFault-V1.jar - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.0 (4.8MB) (.tar.gz format 🐧) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.tar.gz" download>PandaFault-V1.tar.gz - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.0 (4.8MB) (.tar.xz format 🍎) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.tar.xz" download>PandaFault-V1.tar.xz - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.0 (4.8MB) (.7z format 📐) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.7z" download>PandaFault-V1.7z - Bloxd.io Texture pack</a></p>
+            <br>
+        </div>
+        
+        <!-- Version 1.1 Button and Downloads -->
+        <button class="version-button" onclick="toggleDownloads('1.1')">
+            <span class="arrow" id="arrow-1.1">&#8250;</span> Version 1.1
+        </button>
+        <div class="downloads" id="downloads-1.1">
+            <p>Download: Version 1.1 (5.1MB) (.zip format 🤐) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.zip" download>PandaFault-V1.1.zip - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.1 (5.0MB) (.rar format 🪟) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.rar" download>PandaFault-V1.1.rar - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.1 (6.8MB) (.iso format 💿️) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.iso" download>PandaFault-V1.1.iso - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.1 (5.0MB) (.jar format 🫙) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.jar" download>PandaFault-V1.1.jar - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.1 (4.8MB) (.tar.gz format 🐧) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.tar.gz" download>PandaFault-V1.1.tar.gz - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.1 (4.8MB) (.tar.xz format 🍎) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.tar.xz" download>PandaFault-V1.1.tar.xz - Bloxd.io Texture pack</a></p>
+            <p>Download: Version 1.1 (4.8MB) (.7z format 📐) <a href="https://github.com/AquaCobalt/aquacobalt.github.io/raw/refs/heads/main/Files/PandaFault-V1.1.7z" download>PandaFault-V1.1.7z - Bloxd.io Texture pack</a></p>
+        </div>
+    </div>
+
     <br><br>
     <a href="https://aquacobalt.github.io/" class="simple-button">Go Back to Homepage</a>
-    
-    <meta property="og:title" content="AquaCobalt's Website - Bloxd.io Packs!" />
-    <meta property="og:description" content="🚧 This website is still in development!" />
-    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/rHuY0SJRu2p8_Oc2_gK8edjCvgXYYTzciKhz1_cszM8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/818814991770845216/37baa813ea16c5ffa856bd2db06da67c.png?format=webp&quality=lossless" />
-    <meta property="og:url" content="https://aquacobalt.github.io/bloxdpacks" />
-    <meta property="og:type" content="website" />
 </body>
+<footer>
+    <p>&copy; 2024 Methuja Randira. All rights reserved.</p>
+</footer>
 </html>
