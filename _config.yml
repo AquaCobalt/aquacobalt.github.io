@@ -1,16 +1,12 @@
 title: My Photography
 email: amethujarandira552@gmail.com
-description: >-
-  A gallery of my photography.
-baseurl: ""  # leave empty for root
-url: "https://aquacobalt.com"      # leave empty for GitHub Pages root
-twitter_username: jekyllrb
-github_username: AquaCobalt
+description: A gallery of my photography.
+baseurl: ""  
+url: "https://aquacobalt.com"
 
 theme: minima
 plugins:
   - jekyll-feed
 
-# Paths for gallery
 imagesurl: "/assets/galleries/"
 thumbsurl: "/assets/thumbs/"
