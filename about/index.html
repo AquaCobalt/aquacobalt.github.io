@@ -21,10 +21,73 @@
     <meta property="og:type" content="website" />
 </head>
 <body>
-    <h1>About me</h1>
-    <p>
-        
+    <h1>About Me</h1>
+        I usually go by AquaCobalt, matei1205, or CautiousBlue.<br>
+    <p class="centered-justified">
+        I currently live in the city of New Plymouth in New Zealand and mainly study geography and Earth sciences. I have a huge passion for volcanoes. I also practice photography, cartography and programming as a hobby. I also 
+        have interests in aviation, biology and chemistry.
+        Below is one of my photgraphs and one of my drawings.
     </p>
-</body>
+<div class="image-row">
+    <div class="image-item">
+        <img src="/assets/IMG_4232.JPG" alt="Description of image">
+        <p>
+            Camera: Canon EOS R10<br>
+            Lens: RF-S 18-45MM F4.5-6.3 IS STM<br>
+            Time: 23 August 2025, 4:52:36 PM<br>
+            f/6.3 - 1/200 - ISO 320<br>
+            Location: State Highway 3, Taranaki Region, New Zealand
+        </p>
+    </div>
+        <div class="image-item">
+        <img src="/assets/NewZealand.png" alt="New Zealand map in mspaint">
+        <p>Drawn using Microsoft Paint<br>Scaled using Aseprite</p>
+    </div>
+</div>
 <style>
+body {
+    text-align: center; 
+}
+img {
+    width: 500px;
+    height: auto;
+    border-radius: 0px;
+    display: block;
+    margin: 0px auto;
+}
+.centered-justified {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #ffffff;
+}
+.side-image {
+    display: inline-block;
+    width: 60%;
+    margin: 10px;
+    vertical-align: middle;
+    border-radius: 0px;
+}
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px 0;
+}
+.image-item {
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+}
+.image-row img {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0px;
+    display: block;
+    margin-bottom: 10px;
+}
 </style>
