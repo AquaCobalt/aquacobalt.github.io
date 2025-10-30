@@ -40,6 +40,27 @@ h1 {
     transform: scale(0.95); 
 }
 
+.neo-button {
+    text-decoration: none;
+    padding: 12px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    border-radius: 0px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #2b7b44, #204068);
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.neo-button:hover {
+    background: linear-gradient(90deg, #3ca85a, #30527f);
+}
+
+.neo-button:active {
+    transform: scale(0.95);
+}
+
 .simple-button {
     display: inline-block;
     padding: 10px 15px;
