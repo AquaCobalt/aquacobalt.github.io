@@ -14,17 +14,95 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap">
 
     <!-- The embed stuff fr-->
-    <meta property="og:title" content="My website" />
-    <meta property="og:description" content="🚧 Website might be a little broken" />
+    <meta property="og:title" content="A lil humble website" />
+    <meta property="og:description" content="🚧 This website might be a little broken" />
     <meta property="og:image" content="https://images-ext-1.discordapp.net/external/rHuY0SJRu2p8_Oc2_gK8edjCvgXYYTzciKhz1_cszM8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/818814991770845216/37baa813ea16c5ffa856bd2db06da67c.png?format=webp&quality=lossless" />
     <meta property="og:url" content="https://aquacobalt.com" />
     <meta property="og:type" content="website" />
 </head>
 <body>
-    hello!
+    <h1>Welcome</h1>
+    Nothing to see here at the moment.
+    
+    <div class="cupoftea">
+        🍵
+    </div>
+    <div class="mini-text">
+        Here's a cup of tea.
+    </div>
+
 </body>
 <style>
     body {
         text-align: center;
     }
+    .mini-text {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+    .cupoftea {
+            font-size: 100px;
+            margin: 20px 0;
+            cursor: pointer;
+            user-select: none;
+        }
 </style>
+<script>
+// format: { emoji: "", text: ""},
+
+const jajajaja = [
+    { emoji: "🍵", text: "Here's a cup of tea." },
+    { emoji: "🫥", text: "Why did you actually decide to click this?" },
+    { emoji: "⏰", text: "I built this website on a limited timeframe; sorry for the emptiness."},
+    { emoji: "🦈", text: "So apparently sharks have no bones."},
+    { emoji: "🔮", text: "You've been cursed. GTA VI will come out the day you die."},
+    { emoji: "🧀", text: "I've lately been obsessed with brie cheese. How come camembert tastes horrible while looking the exact same?"},
+    { emoji: "🇳🇿", text: "New Zealand is the best country."},
+    { emoji: "⌨️", text: "I can't wait for my Wooting 80HE with Gateron Jade switches."},
+    { emoji: "🧐", text: "You can find an unfinished version of my photography website at https://gallery.aquacobalt.com"},
+    { emoji: "🐧", text: "I'm a proud Debian user."},
+    { emoji: "🦐", text: "I will definitely put some more meaningful stuff here later."},
+    { emoji: "🕴️", text: "Instead of a robber emoji, we have this?"},
+    { emoji: "🥝", text: "We need a kiwi bird emoji."},
+];
+const jajaja = [
+    { emoji: "📸", text: "Drop me a follow at my Instagram @methuja_r"},
+    { emoji: "🍄", text: "I love mushrooms."},
+    { emoji: "📷", text: "I'm quite happy with my Canon EOS R10 but one day a Sony A1 or a Canon EOS R5 would be a dream."},
+    { emoji: "🐼", text: "Visit my friend's website https://bloxdium.com"},
+    { emoji: "❄️", text: "I'm cold."},
+    { emoji: "💻", text: "Really waiting on the day I could buy a new MacBook Pro."},
+    { emoji: "🧑‍💻", text: "This website totally doesn't grab your IP."},
+
+];
+const jaja = [
+    { emoji: "🍪", text: "Nom Nom."},
+    { emoji: "🇱🇰", text: "Sri Lankan cuisine is second to none."},
+    { emoji: "🪶", text: "Oo a feather"},
+    { emoji: "🚀", text: "I'm building a Minecraft Launcher! It will be called Voyager!"},
+];
+const ja = [
+    { emoji: "🍀", text: "This message had a 1% chance of appearing."},
+    { emoji: "💎", text: "Shiny..."},
+];
+
+const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+let current = 0;
+
+document.querySelector(".cupoftea").addEventListener("click", () => {
+    const roll = Math.random();
+    let result;
+
+    if      (roll < 0.01) result = pick(ja); // 1%
+    else if (roll < 0.05) result = pick(jaja); // 4%
+    else if (roll < 0.15) result = pick(jajaja); // 10%
+    else {
+        current = (current + 1) % jajajaja.length;
+        result = jajajaja[current];
+    }
+
+  document.querySelector(".cupoftea").textContent = result.emoji;
+  document.querySelector(".mini-text").textContent = result.text;
+});
+</script>
